@@ -1,0 +1,19 @@
+.planets {
+  background-image: url("../../../assets/img/back111.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &__card.card {
+    background-color: #383838;
+    color: #bfbfbf;
+  }
+
+  &__card-text.card-text {
+    font-size: 1.1em;
+  }
+
+  &__page {
+    border-radius: 0.375rem;
+  }
+}

@@ -1,0 +1,61 @@
+<div class="planet">
+  <div class="container">
+    <div class="planet__wrapper p-4">
+      <div class="planet__body text-white">
+        <h2 class="planet__title text-center">Планета {{ planet.getValue().name }}</h2>
+        <div class="planet__info bg-dark bg-opacity-75 p-4">
+          <p class="planets__card-text card-text fw-bold ">Период вращения
+            <span class="fw-normal">{{ planet.getValue().rotation_period }}</span>
+          </p>
+          <p class="planets__card-text card-text fw-bold">Орбитальный период
+            <span class="fw-normal">{{ planet.getValue().orbital_period }}</span>
+          </p>
+          <p class="planets__card-text card-text fw-bold">Диаметр
+            <span class="fw-normal">{{ planet.getValue().diameter }}</span></p>
+          <p class="planets__card-text card-text fw-bold">Климат
+            <span class="fw-normal">{{planet.getValue().climate}} </span></p>
+          <p class="planets__card-text card-text fw-bold">Гравитация
+            <span class="fw-normal"> {{planet.getValue().gravity}} </span></p>
+          <p class="planets__card-text card-text fw-bold">Местность
+            <span class="fw-normal"> {{planet.getValue().terrain}} </span></p>
+          <p class="planets__card-text card-text fw-bold">Водная поверхность
+            <span class="fw-normal"> {{planet.getValue().surface_water}} </span>
+          </p>
+          <p class="planets__card-text card-text fw-bold">Население
+            <span class="fw-normal"> {{planet.getValue().population}} </span></p>
+        </div>
+        <h4 class="planet-title text-center mt-3 mb-3">Жители планеты</h4>
+        <div class="planet__filter d-flex gap-4 m-3">
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="checkbox-male" checked (change)="filterResidents($event,'male')">
+            <label class="form-check-label" for="checkbox-male">Male</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="checkbox-female" checked (change)="filterResidents($event, 'female')">
+            <label class="form-check-label" for="checkbox-female">Female</label>
+          </div>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="checkbox-na" checked (change)="filterResidents($event, 'n_a')">
+            <label class="form-check-label" for="checkbox-na">N/a</label>
+          </div>
+        </div>
+        <div class="planet__cards cards d-flex flex-wrap">
+          <div class="planet__card card text-white bg-dark bg-opacity-75 m-2"
+               *ngFor="let resident of filteredResidents.getValue()"
+               style="width: 18rem;">
+            <div class="planet__card-body card-body">
+              <h5 class="planet__card-title card-title text-center">{{ resident.name }}</h5>
+              <p class="planet__card-text card-text fw-bold mb-1">Рост <span class="fw-normal"> {{resident.height}} </span></p>
+              <p class="planet__card-text card-text fw-bold mb-1">Вес <span class="fw-normal"> {{resident.mass}} </span></p>
+              <p class="planet__card-text card-text fw-bold mb-1">Цвет волос <span class="fw-normal"> {{resident.hair_color}} </span></p>
+              <p class="planet__card-text card-text fw-bold mb-1">Цвет кожи <span class="fw-normal"> {{resident.skin_color}} </span></p>
+              <p class="planet__card-text card-text fw-bold mb-1">Цвет глаз <span class="fw-normal"> {{resident.eye_color}} </span></p>
+              <p class="planet__card-text card-text fw-bold mb-1">Год рождения <span class="fw-normal"> {{resident.birth_year}} </span></p>
+              <p class="planet__card-text card-text fw-bold">Пол <span class="fw-normal"> {{resident.gender}} </span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

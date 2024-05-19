@@ -1,0 +1,26 @@
+.planet {
+    background-image: url("../../../assets/img/back.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+.planets__card-text.card-text,
+.planet__card-text.card-text {
+  font-size: 18px;
+}
+
+.planets__card-text.card-text span,
+.planet__card-text.card-text span {
+  font-size: 16px;
+}
+
+.form-check-input:checked {
+  background-color: #383838;
+  border-color: #383838;
+}
+
+.form-check-input:focus {
+  border-color: #383838;
+  box-shadow: none;
+}

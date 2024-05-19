@@ -1,0 +1,20 @@
+<div class="planets">
+  <div class="container">
+    <div class="planets__cards cards d-flex flex-wrap justify-content-center">
+      <div class="planets__card card bg-dark bg-opacity-75 m-3" style="width: 18rem;" *ngFor="let planet of planets">
+        <div class="planets__card-body card-body d-flex flex-column justify-content-between">
+          <h4 class="planets__card-title card-title text-white text-center mb-3">{{planet.name}}</h4>
+          <p class="planets__card-text card-text">Диаметр <span class="text-white">{{ planet.diameter }}</span></p>
+          <p class="planets__card-text card-text">Климат <span class="text-white">{{planet.climate}} </span></p>
+          <p class="planets__card-text card-text">Гравитация <span class="text-white"> {{planet.gravity}} </span></p>
+          <p class="planets__card-text card-text">Местность <span class="text-white"> {{planet.terrain}} </span></p>
+          <button class="btn btn-dark" (click)="getPlanet(planet.url)" routerLink="/planet">Подробнее</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="planets__pages d-flex justify-content-center">
+    <button class="planets__page p-2 m-2 bg-dark bg-opacity-50 text-white" (click)="getPlanetsByPageNumber(page)"
+            *ngFor="let page of pages">{{page}}</button>
+  </div>
+</div>
