@@ -9,8 +9,20 @@ import {ResidentsService} from "../../services/residents.service";
   styleUrls: ['./planets.component.scss']
 })
 export class PlanetsComponent {
+
+  /**
+   * Чисто загруженных планет на странице
+   */
   perPage: number = 10;
+
+  /**
+   * Загруженные планеты
+   */
   planets: Planet[] = [];
+
+  /**
+   * Страницы пагинации
+   */
   pages: number[] = [];
 
   constructor(private planetsService: PlanetsService,
@@ -29,6 +41,10 @@ export class PlanetsComponent {
     });
   }
 
+  /**
+   * Загружает планету по ссылке
+   * @param urlPlanet - адрес планеты
+   */
   getPlanet(urlPlanet: string) {
     this.planetsService.getPlanet(urlPlanet).subscribe({
       next: planet => {
@@ -49,6 +65,10 @@ export class PlanetsComponent {
     });
   }
 
+  /**
+   * Загружает планеты по номеру страницы
+   * @param pageNumber - номер страницы
+   */
   getPlanetsByPageNumber(pageNumber: number) {
     this.planetsService.getPlanetByPageNumber(pageNumber).subscribe({
       next: planetsResponse => this.planets = planetsResponse.results,

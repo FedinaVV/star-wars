@@ -14,9 +14,24 @@ import {Filter} from "../../interfaces/filter";
 })
 export class PlanetDetailsComponent {
 
+  /**
+   * Ссылка на загруженную планету
+   */
   planet: BehaviorSubject<Planet> = this.planetsService.planet;
+
+  /**
+   * Ссылка на загруженных жителей
+   */
   residents: BehaviorSubject<Resident[]> = this.residentsService.residents;
+
+  /**
+   * Ссылка на отфильтрованных жителей
+   */
   filteredResidents: BehaviorSubject<Resident[]> = this.residentsService.filteredResidents;
+
+  /**
+   * Фильтр по полу
+   */
   filter: Filter = {female: true, male: true, n_a: true};
 
   constructor(private planetsService: PlanetsService,
@@ -25,6 +40,11 @@ export class PlanetDetailsComponent {
 
   ngOnInit() {}
 
+  /**
+   * Фильтрует жителей планеты по полу
+   * @param event - событие чекбокса
+   * @param gender - пол
+   */
   filterResidents(event: Event, gender: string) {
     const target = event.target as HTMLInputElement;
     let residents: Resident[] = [];
@@ -52,6 +72,4 @@ export class PlanetDetailsComponent {
     this.filteredResidents.next(residents);
 
   }
-
-
 }

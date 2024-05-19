@@ -9,7 +9,14 @@ import {BehaviorSubject} from "rxjs";
 })
 export class PlanetsService {
 
+  /**
+   * Базовый адрес API
+   */
   url: string = 'https://swapi.dev/api';
+
+  /**
+   * Загруженная планета
+   */
   planet: BehaviorSubject<Planet> = new BehaviorSubject<Planet>({
     climate: "",
     created: undefined,
@@ -27,8 +34,7 @@ export class PlanetsService {
     url: ""
   });
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   /**
    * Возвращает ответ с планетами
@@ -39,11 +45,16 @@ export class PlanetsService {
 
   /**
    * Возвращает ответ с выбранной планетой
+   * @param urlPlanet - адрес страницы планеты
    */
   getPlanet(urlPlanet: string) {
     return this.http.get<Planet>(urlPlanet);
   }
 
+  /**
+   * Возвращает ответ с планетами по номеру страницы пагинации
+   * @param pageNumber - номер страницы
+   */
   getPlanetByPageNumber(pageNumber: number) {
     return this.http.get<PlanetsResponse>('https://swapi.dev/api/planets/?page=' + pageNumber);
   }
